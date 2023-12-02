@@ -6,6 +6,14 @@ body, html {
   margin: 0;
 }
 
+body {
+  background-image: url('/wave-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
 /* App */
 .App {
   display: flex;
@@ -29,3 +37,12 @@ nav a:hover {
 nav a.active {
   font-weight: bold; 
 }
+
+/* Home */
+
+
+/* Workouts */
+.active-days {
+  background-color: rgb(127, 236, 255);
+}
+
