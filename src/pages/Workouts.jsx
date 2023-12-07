@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
-import ActiveDays from '../components/ActiveDays';
+import CalendarInput from '../components/CalendarInput';
 import './Workouts.css';
+
 
 
 const Workouts = () => {
   const [activity, setActivity] = useState('');
   const [duration, setDuration] = useState('');
-  const workoutDays = ['12-01-23', '12-02-23', '12-03-23'];
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   // Handler for form submission
   const handleSubmit = (event) => {
     event.preventDefault();
     
-    console.log({ activity, duration });
+    console.log({ activity, duration, selectedDate });
   };
 
   return (
     <div>
       <h1>Workouts</h1>
-      <ActiveDays workoutDays={workoutDays} />
+      <CalendarInput
+      selectedDate={selectedDate}
+      onChange={setSelectedDate} 
+      />
       <div className="form-container">
     <form onSubmit={handleSubmit}>
     <div className="form-element">
