@@ -9,9 +9,21 @@ const Workouts = () => {
   const [duration, setDuration] = useState('');
   const [selectedDate, setSelectedDate] = useState(new Date());
 
+const [submittedData, setSubmittedData] = useState({
+  activity: '',
+  duration: '',
+  date: '',
+});
+
   // Handler for form submission
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    setSubmittedData({
+      activity,
+      duration,
+      date: selectedDate.toDateString(),
+    });
     
     console.log({ activity, duration, selectedDate });
   };
@@ -65,8 +77,16 @@ const Workouts = () => {
       <button type="submit">Submit</button>
     </form>
     </div> 
-    </div>
     
+
+    {submittedData.activity && (
+      <div className='submitted-info'>
+      <p>Date: {submittedData.date}</p>
+      <p>Activity: {submittedData.activity}</p>
+      <p>Duration: {submittedData.duration} minutes</p>
+      </div>
+    )}
+    </div>
   );
 };
 
