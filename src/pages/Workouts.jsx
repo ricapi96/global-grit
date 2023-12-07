@@ -45,13 +45,14 @@ const Workouts = () => {
         />
       )}
 <div className="form-element">
-      <label htmlFor="duration-input">Duration (minutes):</label>
+      <label htmlFor="duration-input">Duration (minutes): </label>
       <input
         id="duration-input"
         type="number"
         value={duration}
         onChange={(e) => setDuration(e.target.value)}
-        placeholder="Enter duration in minutes"
+        placeholder="Mins"
+        className='duration-input'
       />
       </div>
 
