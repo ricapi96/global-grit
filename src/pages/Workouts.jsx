@@ -74,10 +74,10 @@ const Workouts = () => {
             />
           </div>
           <div className="form-actions">
-            <button type="submit">Submit</button>
             <button type="button" onClick={handleClearForm}>
-              Clear Form
+              Clear
             </button>
+            <button type="submit">Submit</button>
           </div>
         </form>
       </div>
