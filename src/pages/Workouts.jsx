@@ -26,6 +26,13 @@ const Workouts = () => {
     console.log({ activity, duration, selectedDate });
   };
 
+  const handleClearForm = () => {
+    setActivity("");
+    setDuration("");
+    setSelectedDate(new Date());
+    setSubmittedData({ activity: "", duration: "", date: "" });
+  };
+
   return (
     <div>
       <h1>Workouts</h1>
@@ -66,20 +73,22 @@ const Workouts = () => {
               className="duration-input"
             />
           </div>
-
-          {/* Add more inputs as needed */}
-
-          <button type="submit">Submit</button>
+          <div className="form-actions">
+            <button type="button" onClick={handleClearForm}>
+              Clear
+            </button>
+            <button type="submit">Submit</button>
+          </div>
         </form>
       </div>
 
       {submittedData.activity && (
         <div className="submitted-info-container">
-        <div className="submitted-info">
-          <p>Date: {submittedData.date}</p>
-          <p>Activity: {submittedData.activity}</p>
-          <p>Duration: {submittedData.duration} minutes</p>
-        </div>
+          <div className="submitted-info">
+            <p>Date: {submittedData.date}</p>
+            <p>Activity: {submittedData.activity}</p>
+            <p>Duration: {submittedData.duration} minutes</p>
+          </div>
         </div>
       )}
     </div>
