@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CalendarInput from "../components/CalendarInput";
 import "./Workouts.css";
 
@@ -6,36 +6,36 @@ const Workouts = () => {
   const [activity, setActivity] = useState("");
   const [duration, setDuration] = useState("");
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [submittedData, setSubmittedData] = useState([]);
 
-  const [submittedData, setSubmittedData] = useState({
-    activity: "",
-    duration: "",
-    date: "",
-  });
+  useEffect(() => {
+    const storedWorkouts = JSON.parse(localStorage.getItem("workouts"));
+    if (storedWorkouts) {
+      setSubmittedData(storedWorkouts);
+    }
+  }, []);
 
-  // Handler for form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    setSubmittedData({
+    const newWorkout = {
       activity,
       duration,
-      date: selectedDate.toDateString(),
-    });
-
-    console.log({ activity, duration, selectedDate });
+      date: selectedDate.toISOString(),
+    };
+    const updatedWorkouts = [...submittedData, newWorkout];
+    setSubmittedData(updatedWorkouts);
+    localStorage.setItem("workouts", JSON.stringify(updatedWorkouts));
   };
 
   const handleClearForm = () => {
     setActivity("");
     setDuration("");
     setSelectedDate(new Date());
-    setSubmittedData({ activity: "", duration: "", date: "" });
   };
 
   return (
     <div>
-      <h1>Workouts</h1>
+      <h1 className="workout-title">Your Workouts</h1>
       <CalendarInput selectedDate={selectedDate} onChange={setSelectedDate} />
       <div className="form-container">
         <form onSubmit={handleSubmit}>
@@ -62,17 +62,18 @@ const Workouts = () => {
               onChange={(e) => setActivity(e.target.value)}
             />
           )}
+
           <div className="form-element">
-            <label htmlFor="duration-input">Duration (minutes): </label>
+            <label htmlFor="duration-input">Duration (minutes):</label>
             <input
               id="duration-input"
               type="number"
               value={duration}
               onChange={(e) => setDuration(e.target.value)}
-              placeholder="Mins"
-              className="duration-input"
+              placeholder="Enter duration in minutes"
             />
           </div>
+
           <div className="form-actions">
             <button type="button" onClick={handleClearForm}>
               Clear
@@ -82,15 +83,15 @@ const Workouts = () => {
         </form>
       </div>
 
-      {submittedData.activity && (
-        <div className="submitted-info-container">
-          <div className="submitted-info">
-            <p>Date: {submittedData.date}</p>
-            <p>Activity: {submittedData.activity}</p>
-            <p>Duration: {submittedData.duration} minutes</p>
+      <div className="submitted-info-container">
+        {submittedData.map((workout, index) => (
+          <div className="submitted-info" key={index}>
+            <p>Date: {new Date(workout.date).toLocaleDateString()}</p>
+            <p>Activity: {workout.activity}</p>
+            <p>Duration: {workout.duration} minutes</p>
           </div>
-        </div>
-      )}
+        ))}
+      </div>
     </div>
   );
 };
