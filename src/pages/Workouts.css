@@ -34,7 +34,7 @@ select {
 }
 
 .duration-input {
-  max-width: 150px;
+  max-width: 50px;
   padding: 10px;
   border: 1px solid #1f1717;
   border-radius: 5px;
@@ -90,7 +90,23 @@ button[type="button"]:hover {
   color: white; 
 }
 
-#workout-date {
-  max-width: 120px;
+.calendar-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+}
+
+.workout-date-label {
+  color: #e6e6e6;
+  margin-bottom: 5px;
+}
+
+
+.datepicker-custom {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 15%; 
+  box-sizing: border-box;
 }
 
