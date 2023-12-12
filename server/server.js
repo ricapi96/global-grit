@@ -1,12 +1,16 @@
 const express = require('express');
-const cors = require('cors');
+const mongoose = require('mongoose');
+const userRoutes = require('./routes/userRoutes');
+const workoutRoutes = require('./routes/workoutRoutes');
 const app = express();
 
-app.use(cors());
 app.use(express.json());
 
+app.use('/api/users', userRoutes);
+app.use('/api/workouts', workoutRoutes);
+
 app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to the backend API' });
+  res.json({ message: 'Welcome to the Wave Walker API' });
 });
 
 const PORT = process.env.PORT || 3001;
