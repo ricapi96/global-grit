@@ -106,7 +106,13 @@ button[type="button"]:hover {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 15%; 
+  width: 120px; 
   box-sizing: border-box;
 }
 
+/* datepicker esponsive adjustments */
+/* @media (max-width: 768px) {
+  .datepicker-custom {
+    width: 100%; 
+  }
+} */
