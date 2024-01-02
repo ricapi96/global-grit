@@ -1,6 +1,7 @@
 {
   "name": "wave-walker",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "start:frontend": "cd client && npx vite",
     "start:backend": "cd server && node server.js",
