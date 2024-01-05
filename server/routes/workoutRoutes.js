@@ -8,4 +8,4 @@ router.post('/', workoutController.addWorkout);
 // Route to get all workouts for a user
 router.get('/:userId', workoutController.getUserWorkouts);
 
-module.exports = router;
+export { router as workoutRoutes };

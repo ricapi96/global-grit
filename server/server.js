@@ -1,7 +1,8 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const userRoutes = require('./routes/userRoutes');
-const workoutRoutes = require('./routes/workoutRoutes');
+import express from 'express';
+// import mongoose from 'mongoose';
+import userRoutes from './routes/userRoutes.js'; 
+import { workoutRoutes } from './routes/workoutRoutes.js'; 
+
 const app = express();
 
 app.use(express.json());
@@ -17,3 +18,4 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
