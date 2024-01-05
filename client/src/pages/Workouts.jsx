@@ -33,6 +33,12 @@ const Workouts = () => {
     setSelectedDate(new Date());
   };
 
+  const handleDeleteWorkout = (indexToDelete) => {
+    const updatedWorkouts = submittedData.filter((_, index) => index !== indexToDelete);
+    setSubmittedData(updatedWorkouts);
+    localStorage.setItem("workouts", JSON.stringify(updatedWorkouts));
+  };
+
   return (
     <div>
       <h1 className="workout-title">Your Workouts</h1>
@@ -89,6 +95,7 @@ const Workouts = () => {
             <p>Date: {new Date(workout.date).toLocaleDateString()}</p>
             <p>Activity: {workout.activity}</p>
             <p>Duration: {workout.duration} minutes</p>
+            <button onClick={() => handleDeleteWorkout(index)}>Delete</button>
           </div>
         ))}
       </div>
