@@ -1,6 +1,8 @@
-# Wave Walker
+![GlobalGrit](https://img.shields.io/badge/GlobalGrit-Fitness%20for%20All-%2340C463)
 
-Wave Walker is a sleek, user-friendly fitness tracker app designed for swimming enthusiasts and fitness buffs. It offers intuitive tracking of workouts, progress visualization, and personalized fitness insights.
+# GlobalGrit
+
+GlobalGrit is a sleek, user-friendly fitness tracker app designed for swimming enthusiasts and fitness buffs. It offers intuitive tracking of workouts, progress visualization, and personalized fitness insights.
 
 ## Features
 
