@@ -25,4 +25,4 @@ To get the app running locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ricapi/wave-walker.git
+   git clone https://github.com/ricapi/global-grit.git
