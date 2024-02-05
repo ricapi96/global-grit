@@ -53,6 +53,7 @@ const Workouts = () => {
               onChange={(e) => setActivity(e.target.value)}
             >
               <option value="">--Please choose an option--</option>
+              <option value="walking">Walking</option>
               <option value="running">Running</option>
               <option value="cycling">Cycling</option>
               <option value="swimming">Swimming</option>
